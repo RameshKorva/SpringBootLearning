@@ -29,11 +29,13 @@ public class DepartmentController {
 
     @GetMapping("/{id}")
     public Department findDepartmentById(@PathVariable("id") Long departmentId) {
+        log.info("I'm going to finddepartment by id --> findDepartmentById controller method");
         return departmentService.findDepartmentById(departmentId);
     }
 
     @GetMapping
     public List<Department> getAllDepartments() {
-       return departmentService.getAllDepartments();
+        log.info("I'm going to getAllDepartments --> getAllDepartments controller method");
+        return departmentService.getAllDepartments();
     }
 }
