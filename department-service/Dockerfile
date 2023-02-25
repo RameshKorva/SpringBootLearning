@@ -1,6 +1,5 @@
-FROM adoptopenjdk/openjdk11
-ENV JAR_FILE="department-service-0.0.1-SNAPSHOT.jar"
-ADD target/*.jar /app/${JAR_FILE}
-RUN cd /app
-WORKDIR /app
-ENTRYPOINT ["java", "-jar", "department-service-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:11
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} department-service.jar
+ENTRYPOINT ["java","-jar","/department-service.jar"]
+EXPOSE 9001
